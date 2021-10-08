@@ -1,0 +1,14 @@
+{
+    "DISCORD_CLIENT_ID" : "",
+    "DISCORD_TOKEN" : "",
+    "DISCORD_CHANNEL_LOG_ID": "",
+    "DISCORD_YAKUZA_FRIDAY_ID": "",
+    "TWITTER_CONSUMER_KEY": "",
+    "TWITTER_CONSUMER_SECRET": "",
+    "TWITTER_ACCESS_TOKEN_KEY": "",
+    "TWITTER_ACCESS_TOKEN_SECRET": "",
+    "FRIDAY_NIGHTERS": [{
+        "discordUsername": "",
+        "discordId": ""
+    }]
+}

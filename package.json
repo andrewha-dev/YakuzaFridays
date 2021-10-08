@@ -1,0 +1,28 @@
+{
+  "name": "Discord-Bot-Channel-Logger",
+  "version": "1.0.0",
+  "description": "A Simple Discord Bot Example",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon -L src/app.js"
+  },
+  "keywords": [
+    "discord",
+    "bot",
+    "xp",
+    "rank"
+  ],
+  "author": "andrewha-dev",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "^12.5.1",
+    "dotenv": "^8.2.0",
+    "nodemon": "^2.0.6",
+    "twitter-lite": "^1.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-google": "^0.14.0"
+  }
+}
