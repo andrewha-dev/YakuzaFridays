@@ -81,7 +81,7 @@ const initPlayMusicOnJoin = async (discordClient) => {
 const playSong = async (discordClient, channelToJoin) => {
   const channelResource = await discordClient.channels.fetch(channelToJoin);
   const connection = await channelResource.join();
-  const dispatcher = connection.play('./music/Shawn-Michaels-Sexy-Boy-WWE.mp3');
+  const dispatcher = connection.play('./music/Friday_Night.mp3');
 
   dispatcher.on('start', () => {
     console.log('Friday Night is now playing!');

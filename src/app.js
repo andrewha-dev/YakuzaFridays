@@ -12,7 +12,7 @@ const twitterClient = new Twitter({
   access_token_secret: config.TWITTER_ACCESS_TOKEN_SECRET,
 });
 
-const build = '1.0.0'; // Change with each update
+const build = '1.0.1'; // Change with each update
 console.log('Build: ' + build);
 
 discordClient.login(config.DISCORD_TOKEN);
