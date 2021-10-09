@@ -22,7 +22,8 @@
     "dotenv": "^8.2.0",
     "ffmpeg": "0.0.4",
     "nodemon": "^2.0.6",
-    "twitter-lite": "^1.1.0"
+    "twitter-lite": "^1.1.0",
+    "node-cron": "^3.0.0"
   },
   "devDependencies": {
     "eslint": "^7.32.0",

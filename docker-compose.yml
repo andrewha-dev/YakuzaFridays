@@ -9,3 +9,4 @@ services:
       - /usr/src/app/node_modules
     environment:
       TZ: America/Toronto
+    restart: always

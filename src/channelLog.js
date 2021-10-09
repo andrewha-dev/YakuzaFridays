@@ -25,7 +25,7 @@ const generateMessage = async (client, username, oldState, newState) => {
         (oldState.channelID !== newState.channelID)) {
       const oldChannel = await client.channels.fetch(oldState.channelID);
       const newChannel = await client.channels.fetch(newState.channelID);
-      message = `[${d.toLocaleTimeString()} - EST] **${username}** ` +
+      message = `[${d.toLocaleTimeString()} - EST] **${username}**` +
       ` switched from **${oldChannel.name}** to **${newChannel.name}**`;
       resolve(message);
     }

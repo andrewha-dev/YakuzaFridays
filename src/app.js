@@ -1,7 +1,9 @@
 const Discord = require('discord.js');
 const config = require('../config.json');
 const channelLog = require('./channelLog');
+const summonAndrew = require('./summonAndrew');
 const yakuzaFriday = require('./yakuzaFriday');
+const channelSwap = require('./channelSwap');
 const discordClient = new Discord.Client();
 
 const Twitter = require('twitter-lite');
@@ -12,7 +14,7 @@ const twitterClient = new Twitter({
   access_token_secret: config.TWITTER_ACCESS_TOKEN_SECRET,
 });
 
-const build = '1.0.1'; // Change with each update
+const build = '1.1.0'; // Change with each update
 console.log('Build: ' + build);
 
 discordClient.login(config.DISCORD_TOKEN);
@@ -22,8 +24,14 @@ discordClient.on('ready', () => {
   // Initiate channel log
   channelLog(discordClient);
 
+  // Initiate summon Andrew
+  summonAndrew(discordClient);
+
   // Initiate Yakuza Fridays
   yakuzaFriday(twitterClient, discordClient);
+
+  // Initiate Channel Swap
+  channelSwap(discordClient);
 });
 
 
