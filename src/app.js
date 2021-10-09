@@ -2,7 +2,6 @@ const Discord = require('discord.js');
 const config = require('../config.json');
 const channelLog = require('./channelLog');
 const yakuzaFriday = require('./yakuzaFriday');
-
 const discordClient = new Discord.Client();
 
 const Twitter = require('twitter-lite');

@@ -1,7 +1,7 @@
 {
-  "name": "Discord-Bot-Channel-Logger",
+  "name": "yakuza_fridays",
   "version": "1.0.0",
-  "description": "A Simple Discord Bot Example",
+  "description": "Track twitter account of YakuzaFriday",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -10,14 +10,17 @@
   "keywords": [
     "discord",
     "bot",
-    "xp",
-    "rank"
+    "yakuza",
+    "friday",
+    "log"
   ],
   "author": "andrewha-dev",
   "license": "MIT",
   "dependencies": {
+    "@discordjs/opus": "^0.3.3",
     "discord.js": "^12.5.1",
     "dotenv": "^8.2.0",
+    "ffmpeg": "0.0.4",
     "nodemon": "^2.0.6",
     "twitter-lite": "^1.1.0"
   },

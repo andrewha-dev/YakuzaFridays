@@ -1,11 +1,17 @@
 const config = require('../config.json');
-const defaultTextChannel = config.DISCORD_YAKUZA_FRIDAY_ID;
+const defaultTextChannel = config.DISCORD_YAKUZA_FRIDAY_CHANNEL_ID;
 const usersToTag = config.FRIDAY_NIGHTERS;
+const yakuzaAccount = config.YAKUZA_FRIDAY_ACCOUNT_ID;
+const customAccount = config.CUSTOM_ACCOUNT_ID;
+
+let isAlreadyPlayed = true;
 
 const yakuzaFriday = async (twitterClient, discordClient) => {
   const parameters = {
-    follow: '',
+    follow: `${yakuzaAccount},${customAccount}`,
   };
+
+  initPlayMusicOnJoin(discordClient);
 
   twitterClient.stream('statuses/filter', parameters)
       .on('start', (response) => console.log('Connected to Twitter!'))
@@ -24,6 +30,7 @@ const handleTweet = async (tweet, discordClient) => {
 
     const statusUrl = generateTweetUrl(username, tweetId);
     const discordMessage = generateMessage(statusUrl);
+    isAlreadyPlayed = false;
     channelToSend.send(discordMessage);
   }
 };
@@ -54,6 +61,38 @@ const generateMessage = (tweetUrl) => {
   generatedMessage += tweetUrl;
 
   return generatedMessage;
+};
+
+const initPlayMusicOnJoin = async (discordClient) => {
+  discordClient.on('voiceStateUpdate', async (oldState, newState) => {
+    const user = newState.guild.member(newState.id);
+    const userId = user.id;
+
+    const isUserInList = usersToTag.some((jsonElement) => jsonElement.discordId === userId);
+    // Meaning person joins the Discord
+    if (oldState.channelID == null && newState.channelID != null &&
+      isUserInList && !isAlreadyPlayed) {
+      isAlreadyPlayed = true;
+      playSong(discordClient, newState.channelID);
+    }
+  });
+};
+
+const playSong = async (discordClient, channelToJoin) => {
+  const channelResource = await discordClient.channels.fetch(channelToJoin);
+  const connection = await channelResource.join();
+  const dispatcher = connection.play('./music/Shawn-Michaels-Sexy-Boy-WWE.mp3');
+
+  dispatcher.on('start', () => {
+    console.log('Friday Night is now playing!');
+  });
+
+  dispatcher.on('finish', () => {
+    console.log('Friday Night has finished playing!');
+    channelResource.leave();
+  });
+
+  dispatcher.on('error', console.error);
 };
 
 module.exports = yakuzaFriday;
