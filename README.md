@@ -48,7 +48,7 @@ Also note the following:
 
 5. `cd` into main directory and run the command `docker-compose build` and wait the container to build
 6. Afterwards, run `docker-compose up` and the bot should start running
-6.1 Run `docker-compose down -v` to stop and remove the container
+7. Run `docker-compose down -v` to stop and remove the container
 
 
 ## Flaws and Limitations
